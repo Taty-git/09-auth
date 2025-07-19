@@ -30,60 +30,63 @@ export default function EditPage() {
             } else {
                 setError("Invalid email or password");
             }
-        }  catch (error) {
-      console.log("error", error);
-      setError("Invalid email or password");
-    }
-};
+        } catch (error) {
+            console.log("error", error);
+            setError("Invalid email or password");
+        }
+    };
+    const handleCancel = () => {
+        router.back();
+    };
 
     return (
         <main className={css.mainContent}>
-        <div className={css.profileCard}>
-            <h1 className={css.formTitle}>Edit Profile</h1>
-            <div className={css.avatar}>{/* <AvatarPicker /> */}</div>
-            {user && (
-            <Image
-                src={user.avatar}
-                alt="User Avatar"
-                width={120}
-                height={120}
-                className={css.avatar}
-            />
-            )}
-            <form
-            onSubmit={async (e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                await hundleEditProfile(formData);
-            }}
-            className={css.profileInfo}
-            >
-            <div className={css.usernameWrapper}>
-                <label htmlFor="username">Username:</label>
-                <input
-                id="username"
-                name="username"
-                type="text"
-                className={css.input}
-                required
-                />
-            </div>
+            <div className={css.profileCard}>
+                <h1 className={css.formTitle}>Edit Profile</h1>
+                <div className={css.avatar}>{/* <AvatarPicker /> */}</div>
+                {user && (
+                    <Image
+                        src={user.avatar}
+                        alt="User Avatar"
+                        width={120}
+                        height={120}
+                        className={css.avatar}
+                    />
+                )}
+                <form
+                    onSubmit={async (e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.currentTarget);
+                        await hundleEditProfile(formData);
+                    }}
+                    className={css.profileInfo}
+                >
+                    <div className={css.usernameWrapper}>
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            id="username"
+                            name="username"
+                            type="text"
+                            className={css.input}
+                            required
+                        />
+                    </div>
 
-            <p>Email: {user?.email}</p>
+                    <p>Email: {user?.email}</p>
 
-            <div className={css.actions}>
-                <button type="submit" className={css.saveButton}>
-                Save
-                </button>
-                <Link href="/profile">
-                <button type="button" className={css.cancelButton}>
-                    Cancel
-                </button>
-                </Link>
+                    <div className={css.actions}>
+                        <button type="submit" className={css.saveButton}>
+                            Save
+                        </button>
+                        <Link href="/profile">
+                            <button type="button" className={css.cancelButton} onClick={handleCancel}>
+                                Cancel
+                            </button>
+                        </Link>
+                    </div>
+                </form>
+                {error && <p>{error}</p>}
             </div>
-            </form>
-            {error && <p>{error}</p>}
-        </div>
         </main>
     );
 }
