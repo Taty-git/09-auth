@@ -7,7 +7,7 @@ import {useAuthStore} from '../../lib/store/authStore';
 import AuthNavigation from '../AuthNavigation/AuthNavigation';
 
 const Header = () => {
-  const { isAuthenticated } = useAuthStore();
+  const {isAuthenticated} = useAuthStore();
   return (
     <header className={css.header}>
        <Link className={css.headerLink} href="/" aria-label="Home">

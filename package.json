@@ -14,7 +14,7 @@
     "clsx": "^2.1.1",
     "cookie": "^1.0.2",
     "formik": "^2.4.6",
-    "next": "^15.4.0-canary.114",
+    "next": "15.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-paginate": "^8.3.0",

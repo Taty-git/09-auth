@@ -43,4 +43,5 @@ export const TagsMenu = () => {
           )}
         </div>
       );
-    };
+};
+export default TagsMenu;
