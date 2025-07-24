@@ -11,11 +11,10 @@ import Link from 'next/link';
 
 export default function EditPage() {
     const router = useRouter();
-    const { user } = useAuthStore();
+    const {user, setUser} = useAuthStore();
     const [error, setError] = useState("");
 
-    const setUser = useAuthStore((state) => state.setUser);
-
+    
     const hundleEditProfile = async (formData: FormData) => {
         try {
             const formValues = Object.fromEntries(formData) as UpdateUserRequest;

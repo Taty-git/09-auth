@@ -1,9 +1,3 @@
-export type RegisterRequest = {
-  email: string;
-  password?: string;
-  avatar?: string;
-  username: string;
-};
 
 export type User = {
   id: string;
@@ -27,4 +21,10 @@ export type UpdateUserRequest = {
   username: string;
   email?: string;
   avatar: string;
+};
+export type RegisterRequest = {
+  email: string;
+  password?: string;
+  avatar?: string;
+  username: string;
 };
